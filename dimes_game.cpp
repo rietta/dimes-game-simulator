@@ -5,6 +5,7 @@ using namespace std;
 class Player {
 
     const int STARTING_HAND = 3;
+    const int DICE_COUNT = 3;
 
     string name;
     int coins;
@@ -45,7 +46,7 @@ class Player {
 
         void play() {
             resetPasses();
-            for(int i = 0; i < coins; i++) {
+            for(int i = 0; i < min(coins, DICE_COUNT); i++) {
                 roll();
             }
         }
@@ -123,6 +124,10 @@ class Table {
 
     int playRound() {
         int playersPlayingCount = 0;
+
+        rounds += 1;
+        cout << "\nStarting Round " << rounds << "\n";
+
         for(int i = 0; i < playerCount(); i++) {
             if(players[i]->playingThisRound()) {
         
@@ -149,7 +154,7 @@ class Table {
                 playersPlayingCount += 1;
             } // end if playingThisRound
         } // next i
-        rounds += 1;
+      
         return playersPlayingCount;
     } // playRound
 
