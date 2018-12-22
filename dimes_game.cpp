@@ -121,7 +121,8 @@ class Table {
         return toReturn;
     }
 
-    void playRound() {
+    int playRound() {
+        int playersPlayingCount = 0;
         for(int i = 0; i < playerCount(); i++) {
             if(players[i]->playingThisRound()) {
         
@@ -144,9 +145,12 @@ class Table {
                     coinsInPot += coins;
                     players[i]->subtract(coins);
                 }
+
+                playersPlayingCount += 1;
             } // end if playingThisRound
         } // next i
         rounds += 1;
+        return playersPlayingCount;
     } // playRound
 
     int winner() {
@@ -167,13 +171,10 @@ class Table {
     }
 
     void play() {
-        int winnerIdx = -1;
-        while(winnerIdx < 0) {
-            playRound();
+        int winnerIdx = winner();
+        while(winnerIdx < 0 &&  playRound() >= 0) {
             winnerIdx = winner();
         }
-
-        Player* winner = players[winnerIdx];
 
         cout << "======================================================\n" 
              << "Winner Declared After " << rounds << " rounds!\n"
