@@ -82,6 +82,10 @@ class Player {
         bool playingThisRound() {
             return coins > 0 ? true : false;
         }
+
+        auto getName() {
+            return name;
+        }
 };
 
 class Table {
@@ -181,9 +185,17 @@ class Table {
             winnerIdx = winner();
         }
 
-        cout << "======================================================\n" 
-             << "Winner Declared After " << rounds << " rounds!\n"
-             << "======================================================\n\n";
+        cout << "======================================================\n";
+        if(winnerIdx >= 0) {
+            cout << "Winner Declared After " << rounds << " rounds!\n"
+                 << players[winnerIdx]->getName()
+                 << "\n";   
+        } else {
+            cout << "Game Ended with No Winners :-(\n"; 
+        }
+        cout << "======================================================\n\n";
+
+
         print();
     }
 

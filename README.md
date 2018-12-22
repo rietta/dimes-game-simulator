@@ -119,6 +119,7 @@ Player Bob rolls 2
 Player Eve rolls 6
 ======================================================
 Winner Declared After 7 rounds!
+Bob
 ======================================================
 
 Dimes with 5 Players
