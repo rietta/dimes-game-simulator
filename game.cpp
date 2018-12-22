@@ -41,6 +41,7 @@ class Player {
             } else if(value == 6) {
                 this->passToPot += 1;
             }
+            cout << "Player " << name << " rolls " << value << "\n";
         }
 
         void play() {
