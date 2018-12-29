@@ -144,3 +144,9 @@ Dimes with 5 Players
 14 coins in the pot.
 
 ```
+
+## Compiling for WASM
+
+Install Emscripten via the instructions at https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html.
+
+`emcc dimes_game.cpp -Wc++11-extensions -std=c++11 -s WASM=1 -o dimes.html`
