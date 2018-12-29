@@ -83,7 +83,7 @@ class Player {
             return coins > 0 ? true : false;
         }
 
-        auto getName() {
+        string getName() {
             return name;
         }
 };
